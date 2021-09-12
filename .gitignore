@@ -1,0 +1,7 @@
+*.o
+*.out
+lash
+dist/
+tags
+.vscode/
+.VSCodeCounter

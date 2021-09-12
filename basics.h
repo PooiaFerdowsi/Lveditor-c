@@ -94,18 +94,6 @@ for(item = (array)+count; keep; keep = !keep)
 #define IS_EVEN( num )  (!IS_ODD( (num) ))
 #define IS_ODD( num )   ((num) & 1)
 
-/* 
- * Swap integers
- */
-void swap (int *,int *);
-void swap (int *a,int *b)
-{
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
 /*
  *  Is ctrl key
  */

@@ -16,18 +16,21 @@ void cls()
 }
 
 /*
- *  write tiles into screen 
+ *  write tildes into screen 
  */
 void draw_rows() 
 {
     int y;
     for (y = 0; y < window.screenrows; y++) {
-        write(STDOUT_FILENO, "~\r\n", 3);
+        write(STDOUT_FILENO, "~", 1);
+        if (y < window.screenrows - 1) {
+            write(STDOUT_FILENO, "\r\n", 2);
+        }
     }
 }
 
 /*
- *  refresh editor screen and print tiles and  ...
+ *  refresh editor screen and print tildes and  ...
  */
 void refresh_screen() 
 {

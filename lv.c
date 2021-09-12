@@ -43,6 +43,7 @@ int main()
     init_editor();
 
     while (1) {
+        check_window_size();
         refresh_screen();
         process_key();
     }

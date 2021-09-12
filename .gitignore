@@ -1,6 +1,6 @@
 *.o
 *.out
-lash
+lv
 dist/
 tags
 .vscode/

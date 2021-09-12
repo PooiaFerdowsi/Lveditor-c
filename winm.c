@@ -6,6 +6,7 @@
 
 #include "glob.h"
 #include "screen.h"
+#include "basics.h"
 
 editor_config window;
 
@@ -34,7 +35,8 @@ void enable_raw_mode()
         die("tcsetattr");
 }
 
-int get_window_size(int *rows, int *cols) {
+int get_window_size(int *rows, int *cols)
+{
     struct winsize ws;
     if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &ws) == -1 || ws.ws_col == 0) {
         if (write(STDOUT_FILENO, "\x1b[999C\x1b[999B", 12) != 12) return -1;
@@ -44,4 +46,16 @@ int get_window_size(int *rows, int *cols) {
         *rows = ws.ws_row;
         return 0;
     }
+}
+ 
+short check_window_size() 
+{
+    int row, col;
+    get_window_size(&row,&col);
+    if (row != window.screenrows || col != window.screencols) {
+        window.screenrows = row;
+        window.screencols = col;
+        return TRUE;
+    }
+    return FALSE;
 }

@@ -18,4 +18,6 @@ void enable_raw_mode();
 
 int get_window_size(int *, int *);
 
+short check_window_size();
+
 #endif
